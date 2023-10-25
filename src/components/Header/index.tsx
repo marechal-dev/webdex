@@ -18,6 +18,7 @@ export function Header() {
           appearance={{
             baseTheme: neobrutalism,
           }}
+          afterSignOutUrl="/"
         />
       )}
     </header>
