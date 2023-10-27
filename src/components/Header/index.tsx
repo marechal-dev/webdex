@@ -9,7 +9,7 @@ export function Header() {
       {!isSignedIn ? (
         <a
           href="/sign-in"
-          className="text-white w-min rounded-lg bg-mystic-900 p-2 text-right text-2xl hover:cursor-pointer hover:brightness-90"
+          className="w-min rounded-lg bg-mystic-900 p-2 text-right text-2xl text-white hover:cursor-pointer hover:brightness-90"
         >
           Entrar
         </a>

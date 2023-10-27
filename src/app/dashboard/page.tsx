@@ -1,5 +1,6 @@
 "use client";
 
+import { Card } from "@/components/Card";
 import { Header } from "@/components/Header";
 import { GenerationPokemonResponse } from "@/models/generation-pokemon-response";
 import Image from "next/image";
@@ -37,19 +38,18 @@ export default function Dashboard() {
   return (
     <main className="flex h-screen w-screen flex-col">
       <Header />
-      <ul>
-        {pokemons.map((pokemon, index) => (
-          <li key={pokemon.id}>
-            <Image
-              alt={`Imagem do ${pokemon.name}`}
-              src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png`}
-              height={150}
-              width={150}
+      <div className="flex justify-center">
+        <div className="grid grid-cols-6  gap-4 gap-x-8 p-8">
+          {pokemons.map((pokemon, index) => (
+            <Card
+              id={pokemon.id}
+              name={pokemon.name}
+              url={pokemon.url}
+              key={pokemon.id}
             />
-            {pokemon.name}
-          </li>
-        ))}
-      </ul>
+          ))}
+        </div>
+      </div>
     </main>
   );
 }
