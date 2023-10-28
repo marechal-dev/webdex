@@ -1,7 +1,19 @@
+/*
+  Como estamos utilizando TailwindCSS, precisamos adicionar essas diretivas no
+  CSS global da aplicação.
+  TailwindCSS é um framework que vem com diversas classes CSS pré-prontas,
+  facilitando o desenvolvimento e permitindo melhor escalabilidade da estilização.
+*/
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/*
+  Aqui é aplicada a classe `.antialiased` no corpo da página. Isso faz com que
+  as bordas de textos e alguns outros elementos fique menos serrilhada
+
+  Referência: https://pt.wikipedia.org/wiki/Anti-aliasing
+*/
 body {
   @apply antialiased
 }
