@@ -1,3 +1,6 @@
+/**
+ * Essa é a tipagem dos dados recebidos na chamada da rota de Detalhes do Pokémon.
+ */
 export interface PokemonDetailsResponse {
   id: number;
   name: string;

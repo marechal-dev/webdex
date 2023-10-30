@@ -1,3 +1,7 @@
+/**
+ * Essa é a tipagem dos dados que são recebidos via chamada da PokéAPI na rota de
+ * Geração 1.
+ */
 export interface GenerationPokemonResponse {
   abilities: any[];
   id: number;

@@ -1,7 +1,14 @@
 import { UserButton, auth } from "@clerk/nextjs";
 import { neobrutalism } from "@clerk/themes";
 
-export async function Header() {
+/**
+ * Esse é o cabeçalho das páginas da aplicação. Ele contém uma lógica simples para
+ * renderizar condicionalmente o botão do usuário ou o botão de entrar baseado no estado
+ * da autenticação do usuário
+ *
+ * @returns {JSX.Element}
+ */
+export function Header() {
   const { userId } = auth();
 
   return (
