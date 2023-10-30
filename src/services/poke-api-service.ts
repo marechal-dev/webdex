@@ -17,6 +17,7 @@ export class PokeApiService {
    *
    * @member axiosClient
    * @private
+   * @static
    * @type {AxiosInstance}
    */
   private static axiosClient = pokeApiAxiosClient;
@@ -42,6 +43,7 @@ export class PokeApiService {
    * @method
    * @public
    * @static
+   * @param {number} id - The Pokémon ID
    * @returns {Promise<AxiosResponse<PokemonDetailsResponse>>}
    */
   public static getPokemonDetailsByID(id: number) {
