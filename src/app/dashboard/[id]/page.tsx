@@ -51,7 +51,7 @@ export default async function PokemonDetails({
         </h1>
 
         <div className="grid h-4/6 w-4/6 grid-cols-2 grid-rows-2 gap-4">
-          <div className="bg-gray-100 flex items-center justify-center  border border-black p-4">
+          <div className="flex items-center justify-center border  border-black bg-gray-100 p-4">
             <Image
               src={pokemon.sprites.other["official-artwork"].front_default}
               alt={pokemon.name}
@@ -60,13 +60,13 @@ export default async function PokemonDetails({
               className="max-h-full max-w-full"
             />
           </div>
-          <div className="bg-gray-200 border border-black p-4">
+          <div className="border border-black bg-gray-200 p-4">
             <h2 className="mb-1 font-bold italic">Informações Gerais:</h2>
             <p>Altura base: {heightInMeters.toFixed(2)}m</p>
             <p>Peso base: {weightInKilos.toFixed(2)}kg</p>
             <p>XP Base: {pokemon.base_experience}xp</p>
           </div>
-          <div className="bg-gray-300 border border-black p-4">
+          <div className="border border-black bg-gray-300 p-4">
             <h2 className="mb-1 font-bold italic">Movimentos:</h2>
             <ul>
               {pokemon.abilities.map((move) => (
@@ -76,7 +76,7 @@ export default async function PokemonDetails({
               ))}
             </ul>
           </div>
-          <div className="bg-gray-400 border border-black p-4">
+          <div className="border border-black bg-gray-400 p-4">
             <h2 className="mb-1 font-bold italic">Tipo(s):</h2>
             {pokemon.types.map((type) => {
               const typeColor =

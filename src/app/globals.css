@@ -15,5 +15,5 @@
   Referência: https://pt.wikipedia.org/wiki/Anti-aliasing
 */
 body {
-  @apply antialiased
+  @apply antialiased;
 }
