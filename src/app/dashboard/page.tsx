@@ -1,8 +1,17 @@
 import { Card } from "@/components/Card";
 import { Header } from "@/components/Header";
+import type { Pokemon } from "@/models/pokemon";
 import { PokeApiService } from "@/services/poke-api-service";
 
-const fetchFirstGenerationPokemons = async () => {
+/**
+ * Essa função realiza a chamada para a PokéAPI no endpoint do recurso da
+ * Primeira Geração de Pokémons. Além disso, também realiza o mapeamento dos dados
+ * recebidos para uma estrutura de dados mais simples, refletindo apenas as necessidades
+ * dessa tela
+ *
+ * @returns {Promise<Pokemon[]>} The array of Pokémon data
+ */
+async function fetchFirstGenerationPokemons(): Promise<Pokemon[]> {
   const generation = await PokeApiService.getFirstGeneration();
 
   const mappedPokemons = generation.data.pokemon_species.map((item) => {
@@ -19,9 +28,15 @@ const fetchFirstGenerationPokemons = async () => {
   });
 
   return mappedPokemons;
-};
+}
 
-export default async function Dashboard() {
+/**
+ * Esse é o componente da tela de Pokémons. Ele contém a estrutura da página em
+ * formato JSX.
+ *
+ * @returns {Promise<JSX.Element>}
+ */
+export default async function Dashboard(): Promise<JSX.Element> {
   const pokemons = await fetchFirstGenerationPokemons();
 
   return (

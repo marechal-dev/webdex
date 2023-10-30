@@ -1,6 +1,12 @@
 import { Header } from "@/components/Header";
 import Image from "next/image";
 
+/**
+ * Essa é a página inicial da aplicação, a função retorna o código HTML com a
+ * estilização aplicada via TailwindCSS nas propriedades `className` de cada tag.
+ *
+ * @returns {JSX.Element}
+ */
 export default function Home() {
   return (
     <main className="flex h-screen w-screen flex-col bg-pokemon-valley-landscape bg-cover">

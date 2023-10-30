@@ -1,7 +1,11 @@
 import { Header } from "@/components/Header";
+import type { PokemonDetailsResponse } from "@/models/pokemon-details-response";
 import { PokeApiService } from "@/services/poke-api-service";
 import Image from "next/image";
 
+/**
+ * Essa constante contém um mapeamento das entre cor e tipo de cada Pokémon.
+ */
 const typeColors: Record<string, string> = {
   normal: "bg-gray-300 text-black",
   fire: "bg-red-500 text-white",
@@ -23,22 +27,41 @@ const typeColors: Record<string, string> = {
   fairy: "bg-pink-200 text-black",
 };
 
-interface IPokemonDetailsParams {
+/**
+ * Essa é a declaração de tipos da tela. Isso significa dizer que essa tela, ao
+ * ser invocada, recebe como parâmetro o ID do Pokémon que se está tentando acessar
+ * os detalhes.
+ */
+interface IPokemonDetailsProps {
   params: {
     id: number;
   };
 }
 
-const fetchPokemonDetails = async (id: number) => {
+/**
+ * Essa função retorna os detalhes de um Pokémon através do ID passado como parâmetro.
+ *
+ * @param {number} id - Pokémon ID
+ * @returns {Promise<PokemonDetailsResponse>} The PokéAPI response for a given pokémon
+ */
+const fetchPokemonDetails = async (
+  id: number,
+): Promise<PokemonDetailsResponse> => {
   const pokemonDetails = await PokeApiService.getPokemonDetailsByID(id);
 
   return pokemonDetails.data;
 };
 
-export default async function PokemonDetails({
-  params,
-}: IPokemonDetailsParams) {
+/**
+ * Esse é a página de detalhes de um Pokémon, ela contém a marcação, a estilização
+ * e também a chamada a API.
+ *
+ * @param {IPokemonDetailsProps} props - Component props
+ * @returns {Promise<JSX.Element>}
+ */
+export default async function PokemonDetails({ params }: IPokemonDetailsProps) {
   const pokemon = await fetchPokemonDetails(params.id);
+  // A altura vinha em Pés e o peso em Libras, então foi convertido.
   const heightInMeters = pokemon.height / 3.281;
   const weightInKilos = pokemon.weight / 2.205;
 
